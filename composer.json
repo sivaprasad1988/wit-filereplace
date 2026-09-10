@@ -1,0 +1,42 @@
+{
+    "name": "wit/filereplace",
+    "type": "typo3-cms-extension",
+    "description": "Replaces all frontend image sources with a placeholder image on Development instances",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://github.com/sivaprasad1988/wit-filereplace",
+    "support": {
+        "issues": "https://github.com/sivaprasad1988/wit-filereplace/issues",
+        "source": "https://github.com/sivaprasad1988/wit-filereplace"
+    },
+    "keywords": [
+        "TYPO3",
+        "image",
+        "placeholder",
+        "development"
+    ],
+    "authors": [
+        {
+            "name": "Sivaprasad Sisupalan",
+            "email": "siva@webofficeit.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^13.4 || ^14.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gingco\\WitFilereplace\\": "Classes"
+        }
+    },
+    "replace": {
+        "typo3-ter/wit-filereplace": "self.version"
+    },
+    "extra": {
+        "typo3/cms": {
+            "cms-package-dir": "{$vendor-dir}/typo3/cms",
+            "web-dir": "public",
+            "extension-key": "wit_filereplace"
+        }
+    }
+}
