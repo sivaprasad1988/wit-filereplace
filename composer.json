@@ -3,10 +3,10 @@
     "type": "typo3-cms-extension",
     "description": "Replaces all frontend image sources with a placeholder image on Development instances",
     "license": "GPL-2.0-or-later",
-    "homepage": "https://github.com/sivaprasad1988/wit-filereplace",
+    "homepage": "https://github.com/sivaprasad1988/wit_filereplace",
     "support": {
-        "issues": "https://github.com/sivaprasad1988/wit-filereplace/issues",
-        "source": "https://github.com/sivaprasad1988/wit-filereplace"
+        "issues": "https://github.com/sivaprasad1988/wit_filereplace/issues",
+        "source": "https://github.com/sivaprasad1988/wit_filereplace"
     },
     "keywords": [
         "TYPO3",
@@ -30,7 +30,7 @@
         }
     },
     "replace": {
-        "typo3-ter/wit-filereplace": "self.version"
+        "typo3-ter/wit_filereplace": "self.version"
     },
     "extra": {
         "typo3/cms": {
