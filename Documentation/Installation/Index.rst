@@ -10,7 +10,7 @@ under :file:`packages/wit_filereplace` in this project):
 
 ..  code-block:: bash
 
-    composer require wit/filereplace:@dev
+    composer require woit/filereplace:@dev
 
 Activate it like any other extension:
 

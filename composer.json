@@ -1,5 +1,5 @@
 {
-    "name": "wit/filereplace",
+    "name": "woit/filereplace",
     "type": "typo3-cms-extension",
     "description": "Replaces all frontend image sources with a placeholder image on Development instances",
     "license": "GPL-2.0-or-later",

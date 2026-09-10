@@ -8,7 +8,7 @@ WIT File Replace
    wit_filereplace
 
 :Package name:
-   wit/filereplace
+   woit/filereplace
 
 :Version:
    |release|

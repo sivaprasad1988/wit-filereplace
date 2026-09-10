@@ -23,7 +23,7 @@ and are no-ops everywhere else (Production, Testing).
 ## Installation
 
 ```
-composer require --dev wit/filereplace
+composer require --dev woit/filereplace
 vendor/bin/typo3 extension:setup
 ```
 
