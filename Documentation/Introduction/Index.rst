@@ -18,13 +18,13 @@ placeholder graphic whenever the current TYPO3 application context is
 
 Two mechanisms cover the two ways images reach the page:
 
-#.  :php:`\Gingco\WitFilereplace\EventListener\ReplaceProcessedImageEventListener`
+#.  :php:`\Woit\WitFilereplace\EventListener\ReplaceProcessedImageEventListener`
     listens on :php:`TYPO3\CMS\Core\Resource\Event\AfterFileProcessingEvent`
     and redirects every FAL-processed image (content elements, images
     rendered via :html:`<f:image>`, TypoScript-generated backgrounds) to the
     placeholder.
 
-#.  :php:`\Gingco\WitFilereplace\Middleware\ReplaceImageSourceMiddleware` is a
+#.  :php:`\Woit\WitFilereplace\Middleware\ReplaceImageSourceMiddleware` is a
     PSR-15 middleware that rewrites the final rendered frontend HTML,
     catching images that bypass FAL processing entirely: hardcoded
     :html:`<img>` markup from RTE bodytext, lazy-load ``data-src``/

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace\Middleware;
+namespace Woit\WitFilereplace\Middleware;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\MiddlewareInterface;
 use Psr\Http\Server\RequestHandlerInterface;
-use Gingco\WitFilereplace\PlaceholderUrl;
+use Woit\WitFilereplace\PlaceholderUrl;
 use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Http\Stream;
 

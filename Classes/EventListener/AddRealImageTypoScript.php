@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace\EventListener;
+namespace Woit\WitFilereplace\EventListener;
 
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -33,9 +33,9 @@ final class AddRealImageTypoScript
         foreach ($cTypes as $cType) {
             $typoScript .= <<<HEREDOC
 tt_content.$cType {
-    dataProcessing.9000 = Gingco\WitFilereplace\DataProcessing\ToggleRealImageProcessor
+    dataProcessing.9000 = Woit\WitFilereplace\DataProcessing\ToggleRealImageProcessor
     stdWrap {
-        postUserFunc = Gingco\WitFilereplace\DataProcessing\ToggleRealImageProcessor->popFlag
+        postUserFunc = Woit\WitFilereplace\DataProcessing\ToggleRealImageProcessor->popFlag
         wrap = <!--wit-filereplace:real-->|<!--/wit-filereplace:real-->
     }
 }

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace\DataProcessing;
+namespace Woit\WitFilereplace\DataProcessing;
 
-use Gingco\WitFilereplace\RealImageState;
+use Woit\WitFilereplace\RealImageState;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 use TYPO3\CMS\Frontend\ContentObject\DataProcessorInterface;
 

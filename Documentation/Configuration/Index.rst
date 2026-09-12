@@ -57,19 +57,19 @@ instances instead of the placeholder, e.g.:
 
     image,textmedia
 
-This is implemented via TypoScript that :php:`Gingco\WitFilereplace\EventListener\AddRealImageTypoScript`
+This is implemented via TypoScript that :php:`Woit\WitFilereplace\EventListener\AddRealImageTypoScript`
 registers for every listed CType, after content-blocks' own default
 TypoScript (so the addition isn't wiped out by content-blocks'
 :typoscript:`=< lib.contentBlock` copy). For each excluded CType it:
 
-#.  Pushes a render-time flag (:php:`Gingco\WitFilereplace\RealImageState`)
+#.  Pushes a render-time flag (:php:`Woit\WitFilereplace\RealImageState`)
     via that CType's :typoscript:`dataProcessing`, before its Fluid template
     (and any :html:`<f:image>` inside it) renders.
 #.  Pops the flag again via :typoscript:`stdWrap.postUserFunc`, once the
     CType has fully rendered.
 #.  Wraps the CType's rendered output in
     :html:`<!--wit-filereplace:real-->...<!--/wit-filereplace:real-->`
-    markers, so :php:`Gingco\WitFilereplace\Middleware\ReplaceImageSourceMiddleware`
+    markers, so :php:`Woit\WitFilereplace\Middleware\ReplaceImageSourceMiddleware`
     skips hardcoded :html:`<img>`/``background-image`` replacement inside
     that content element too.
 
@@ -96,6 +96,6 @@ empty to use the image shipped with the extension.
 If the configured path doesn't resolve to an existing file, the shipped
 default is used instead. Either way, the resolved URL is cache-busted with
 the file's own modification time (``?v=<mtime>``) in
-:php:`Gingco\WitFilereplace\PlaceholderUrl::get()`, so a new image is picked
+:php:`Woit\WitFilereplace\PlaceholderUrl::get()`, so a new image is picked
 up immediately without a manual TYPO3 cache flush - only a hard browser
 reload is needed to bypass the browser's own image cache.

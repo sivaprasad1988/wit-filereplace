@@ -1,6 +1,6 @@
 <?php
 
-use Gingco\WitFilereplace\Middleware\ReplaceImageSourceMiddleware;
+use Woit\WitFilereplace\Middleware\ReplaceImageSourceMiddleware;
 
 return [
     'frontend' => [

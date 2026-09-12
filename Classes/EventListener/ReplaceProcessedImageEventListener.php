@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace\EventListener;
+namespace Woit\WitFilereplace\EventListener;
 
-use Gingco\WitFilereplace\PlaceholderUrl;
-use Gingco\WitFilereplace\RealImageState;
+use Woit\WitFilereplace\PlaceholderUrl;
+use Woit\WitFilereplace\RealImageState;
 use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Attribute\AsEventListener;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;

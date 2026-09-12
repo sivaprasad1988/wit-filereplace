@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace;
+namespace Woit\WitFilereplace;
 
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;

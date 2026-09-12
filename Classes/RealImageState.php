@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Gingco\WitFilereplace;
+namespace Woit\WitFilereplace;
 
 /**
  * Tracks whether the content element currently being rendered is on the

@@ -4,5 +4,5 @@ services:
     autoconfigure: true
     public: false
 
-  Gingco\WitFilereplace\:
+  Woit\WitFilereplace\:
     resource: '../Classes/*'
