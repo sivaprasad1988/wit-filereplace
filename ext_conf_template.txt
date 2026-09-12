@@ -1,0 +1,8 @@
+# cat=basic; type=string; label=Excluded CTypes: Comma-separated list of content element CTypes (e.g. image,textmedia) that keep their real images on Development instances instead of the placeholder.
+excludedCTypes =
+
+# cat=basic; type=boolean; label=Restrict to frontend: If enabled, only frontend requests get the placeholder swap; backend previews (e.g. page module) always show real images.
+restrictToFrontend = 1
+
+# cat=basic; type=string; label=Placeholder image: Path to a custom placeholder image (e.g. fileadmin/placeholder.jpg or EXT:my_ext/Resources/Public/placeholder.png). Leave empty to use the shipped default.
+placeholderImage =

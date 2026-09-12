@@ -16,10 +16,14 @@ use TYPO3\CMS\Core\Http\Stream;
  * Rewrites every <img> src/srcset and inline background-image in the rendered
  * frontend HTML to a static placeholder while running on a Development
  * instance. Catches images that bypass FAL processing (hardcoded RTE markup,
- * external URLs, etc).
+ * external URLs, etc). Content elements whose CType is on the excluded-CType
+ * allowlist are wrapped in markers by AddRealImageTypoScript and left
+ * untouched here.
  */
 final class ReplaceImageSourceMiddleware implements MiddlewareInterface
 {
+    private const REAL_IMAGE_MARKER_PATTERN = '/(<!--wit-filereplace:real-->.*?<!--\/wit-filereplace:real-->)/s';
+
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
     {
         $response = $handler->handle($request);
@@ -40,7 +44,32 @@ final class ReplaceImageSourceMiddleware implements MiddlewareInterface
 
         $placeholder = PlaceholderUrl::get();
 
-        $body = preg_replace_callback(
+        $segments = preg_split(self::REAL_IMAGE_MARKER_PATTERN, $body, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $body = implode('', array_map(
+            static function (string $segment) use ($placeholder): string {
+                if (str_starts_with($segment, '<!--wit-filereplace:real-->')) {
+                    return preg_replace(
+                        ['/^<!--wit-filereplace:real-->/', '/<!--\/wit-filereplace:real-->$/'],
+                        '',
+                        $segment
+                    );
+                }
+
+                return self::replacePlaceholders($segment, $placeholder);
+            },
+            $segments
+        ));
+
+        $stream = new Stream('php://temp', 'rw');
+        $stream->write((string)$body);
+        $stream->rewind();
+
+        return $response->withBody($stream);
+    }
+
+    private static function replacePlaceholders(string $html, string $placeholder): string
+    {
+        $html = preg_replace_callback(
             '/<img\b[^>]*>/i',
             static function (array $matches) use ($placeholder): string {
                 $tag = preg_replace('/\s(srcset|data-srcset)=(["\']).*?\2/i', '', $matches[0]);
@@ -50,20 +79,14 @@ final class ReplaceImageSourceMiddleware implements MiddlewareInterface
                     $tag
                 );
             },
-            $body
+            $html
         );
 
         // inline style="background-image: url(...)" / style="background: url(...)"
-        $body = preg_replace(
+        return preg_replace(
             '/background(-image)?\s*:([^;"\']*)url\((["\']?).*?\3\)/i',
             'background$1:$2url(' . $placeholder . ')',
-            $body
+            $html
         );
-
-        $stream = new Stream('php://temp', 'rw');
-        $stream->write((string)$body);
-        $stream->rewind();
-
-        return $response->withBody($stream);
     }
 }

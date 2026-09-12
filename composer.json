@@ -1,7 +1,7 @@
 {
     "name": "woit/filereplace",
     "type": "typo3-cms-extension",
-    "description": "Replaces all frontend image sources with a placeholder image on Development instances",
+    "description": "Replaces frontend image sources with a placeholder image on Development instances, with settings to restrict this to the frontend, exclude specific content element CTypes, and use a custom placeholder image.",
     "license": "GPL-2.0-or-later",
     "homepage": "https://github.com/sivaprasad1988/wit_filereplace",
     "support": {
