@@ -12,7 +12,7 @@ What does it do?
 
 Loading real content images while developing locally is unnecessary
 bandwidth and, for editorial photos of people, an unwanted privacy exposure
-on a local machine. This extension swaps every frontend image for a generic
+on a local machine. This extension swaps frontend images for a generic
 placeholder graphic whenever the current TYPO3 application context is
 ``Development`` (or any of its sub-contexts, e.g. ``Development/ddev``).
 
@@ -32,7 +32,15 @@ Two mechanisms cover the two ways images reach the page:
     ``background`` CSS declarations.
 
 Both are no-ops outside the Development context, so Staging and Production
-render untouched.
+render untouched. Within Development, three settings shape the behaviour
+further - see :ref:`configuration` for details:
+
+*   By default (``restrictToFrontend``), only frontend requests get the
+    swap; backend previews (e.g. the page module) keep showing real images.
+*   Content elements whose CType is on the ``excludedCTypes`` allowlist keep
+    their real images.
+*   ``placeholderImage`` lets you use a custom placeholder graphic instead
+    of the shipped default.
 
 ..  _requirements:
 
