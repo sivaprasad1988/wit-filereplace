@@ -12,6 +12,12 @@ under :file:`packages/wit_filereplace` in this project):
 
     composer require woit/filereplace:@dev
 
+..  note::
+
+    The composer vendor is ``woit``, not ``wit`` - the ``wit`` namespace was
+    already taken on Packagist when this extension was first published, so
+    ``woit`` is intentional.
+
 Activate it like any other extension:
 
 ..  code-block:: bash

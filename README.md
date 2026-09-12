@@ -27,14 +27,21 @@ composer require --dev woit/filereplace
 vendor/bin/typo3 extension:setup
 ```
 
+> The composer vendor is `woit`, not `wit` - the `wit` namespace was already
+> taken on Packagist when this was first published, so `woit` is
+> intentional, not a typo.
+
 Installing it as a `require-dev` dependency means it is not even present in
 a production build that runs `composer install --no-dev`.
 
 ## Configuration
 
-None needed - controlled entirely by `TYPO3_CONTEXT`. See
+Controlled by `TYPO3_CONTEXT` plus a few settings in the extension
+configuration (**Admin Tools > Settings > Extension Configuration >
+wit_filereplace**): restricting the swap to the frontend, excluding
+specific content element CTypes, and using a custom placeholder image. See
 [`Documentation/Configuration/Index.rst`](Documentation/Configuration/Index.rst)
-for how to change the placeholder image.
+for details.
 
 ## Documentation
 
